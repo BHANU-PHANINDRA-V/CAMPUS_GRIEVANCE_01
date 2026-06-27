@@ -23,9 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%2%0!hluimgc@-zrur16#usacll@v6ix7h8+v(7r6t7ii5hytt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    ".onrender.com",
+    "127.0.0.1",
+    "localhost",
+]
 
 
 # Application definition
@@ -75,17 +79,28 @@ WSGI_APPLICATION = 'campus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+   #     'NAME': 'db_cg',
+    #    'USER': 'postgres',
+     #   'PASSWORD': 'bhanu@123',
+      #  'HOST': 'localhost',
+       # 'PORT': '5432',
+    #}
+#}
+import os
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_cg',
-        'USER': 'postgres',
-        'PASSWORD': 'bhanu@123',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "campus_db_uyc8",
+        "USER": "campus_db_uyc8_user",
+        "PASSWORD": "0c7rdFe9Pd1YxXoJ9qQj0djoIU0Kc6AG",
+        "HOST": "dpg-d8vmsh67r5hc73af9v5g-a.singapore-postgres.render.com",
+        "PORT": "5432",
     }
 }
-
 
 
 # Password validation
@@ -124,6 +139,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / 'media'
 #this is pasted in settings.py to allow cross origin requests from frontend to backend 14-02 due to
 #error of [14/Feb/2026 18:25:09] "POST /login/ HTTP/1.1" 200 17 Forbidden (Origin checking failed - http://127.0.0.1:5500 does not match any trusted origins.): /register_complaint/ [14/Feb/2026 18:25:18] "POST /register_complaint/ HTTP/1.1" 403 2554
